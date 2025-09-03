@@ -1,11 +1,16 @@
+import sys
+
 def formul(xe, ye, r1, r2, x, y):
     result = ((x - xe)**2) / (r1**2) + ((y - ye)**2) / (r2**2)
     return result
 
-with open('circle.txt') as f:
+circle_path = sys.argv[1]
+dot_path  = sys.argv[2]
+
+with open(circle_path) as f:
     xe, ye, r1, r2 = map(float, f.read().split())
     
-with open('dot.txt') as f:
+with open(dot_path) as f:
     for line in f:
         x, y = map(float, line.split())
         znach = formul(xe, ye, r1, r2, x, y)
